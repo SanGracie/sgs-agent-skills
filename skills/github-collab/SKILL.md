@@ -1,10 +1,10 @@
 ---
 name: github-collab
 description: >-
-  Comment on GitHub issues and pull requests, open issues, and create
-  PRs with the GitHub CLI (gh). Use when the user asks to comment on a
-  PR, leave feedback, file a GitHub issue or request, open a pull
-  request, or check PR status on a github.com remote.
+  Comment on GitHub pull requests and issues with the GitHub CLI (gh).
+  Use when the user asks to comment on a GitHub PR, open a GitHub issue
+  on their app repo, or check PR status. Not for Cursor skill bugs —
+  those use report-skill-issue (dashboard Report Feedback).
 ---
 
 # GitHub comments, issues, PRs
