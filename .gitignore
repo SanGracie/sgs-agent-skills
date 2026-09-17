@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+*.trc
+anita.wcf
+anita-bg.exe
+__pycache__/
+.DS_Store
+Thumbs.db
+*.pyc

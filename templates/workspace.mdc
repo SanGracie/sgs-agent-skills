@@ -1,0 +1,75 @@
+---
+description: Workspace overview, developer context, repository layout, and agent working rules
+alwaysApply: true
+---
+
+# {{WORKSPACE_TITLE}}
+
+> Last verified: {{TODAY}}
+
+{{REPO_ONE_LINER}}
+
+## Start here
+
+**For ANY {{PRIMARY_APP}} task, read `{{CONTEXT_INDEX_PATH}}` first.** It routes you to the right doc per task and carries trust tiers. Do not read the whole `CONTEXT/` tree — INDEX exists so you don't have to.
+
+**Diagnosing a reported problem** (page down, hung, 500, wrong live behavior): do not infer the cause from reading feature code. Confirm the symptom from logs, health checks, and a recreate — or reconstruct it from the log at the reported time — then open the module those artifacts name. Show the smoking gun before the theory.{{DIAGNOSIS_LINE}}
+
+**When docs disagree, the newer and more specific one wins, and code beats every doc.** `CONTEXT/QA/**` and `*.archived.md` are dated snapshots — never authoritative.
+
+## Developer Context
+
+- **Name**: {{NAME}}
+- **Role**: {{ROLE}}
+- **Team**: {{TEAM}}
+- **Expertise**: {{EXPERTISE}}
+- **Business framing**: {{BUSINESS}}
+- **Write docs for the techs, not just for agents.** They did not live through the refactors. A stale path costs a person a morning.
+
+## Repository Layout
+
+{{REPO_LAYOUT}}
+
+## Working with subagents
+
+**Delegate by default.** Subagents get clean context windows, cheap models can do the work while an expensive model orchestrates and reviews, and independent pieces run in parallel. Reach for them without being asked.
+
+- **Default to fanning out** on: any plan with 2+ independent stages, any repo-wide audit or sweep, any multi-file refactor with disjoint file sets, test/CI triage, and broad exploration.
+- **Model tiers**: orchestrate and review on the expensive model; delegate exploration, sweeps, mechanical edits, and self-contained plan files to `cursor-grok-4.6-high-fast`. Step up to a stronger model only when a stage needs real reasoning.
+- **Split by disjoint paths — one writer per file.** Never put two agents on the same file.
+- **Verify before you act on a subagent's claim.** They report files that do not exist. Confirm with `Test-Path` or `git ls-files` before building on any existence claim.
+- **Do not delegate**: commits, deploys, secrets, or edits needing 1–2 tool calls.
+
+Full playbook: `admin/CONTEXT/subagents.md`.
+
+## Implementation Plans (`admin/plans/`)
+
+**`admin/plans/` is the only task tracker in this workspace.** There is no external issue tracker — do not look for one. Status lives in each batch's `README.md` checklist.
+
+- `admin/plans/README.md` — index with **Active** and **Completed** sections.
+- `admin/plans/active/<date-batch>/` — in progress; `admin/plans/completed/<date-batch>/` — shipped.
+- Each batch: `README.md` (build order, dependencies, checklist) plus `01-….md`, `02-….md` — **one plan file per build**, never unrelated work in one file.
+- **One agent session = one plan file** unless the user combines scopes. A session *may* fan out subagents against that one plan file.
+- When a build ships, tick that batch's checklist. When every plan in a batch is done, move the folder to `completed/` and update the index. **After moving a batch, grep `CONTEXT/` for `admin/plans/active/<batch>` and repoint those citations.**
+
+`admin/plans/` is *how to implement*; `CONTEXT/` is *long-lived architecture*.
+
+## Documentation Convention & Maintenance
+
+- **STRICT RULE**: exactly one rule file in this workspace — this `workspace.mdc`. Do not create extra `.cursor/rules` folders or `.mdc` files in app packages.
+- All repo-specific documentation lives as `.md` files in that repo's `CONTEXT/` folder (`{{CONTEXT_DIR}}`).
+- Every `CONTEXT/` doc carries a single `> Last verified: YYYY-MM-DD` line at the top. Update it when you change the doc. One stamp per file — do not stack changelog paragraphs.
+- **Point at code rather than copying it.** Where a declarative table exists in code, link to it. Copied lists are what drift.
+
+### MANDATORY: update docs before finishing
+
+A task is **not complete** until docs are updated, even if the user did not ask.
+
+- **You must update a `CONTEXT/` doc** if you add/remove/rename a feature, route, page, or endpoint; change architecture, data flow, schema, config keys, env vars, or integrations; change user-facing behavior or a contract another module depends on; or introduce a new convention or non-obvious gotcha.
+- Update the most relevant existing doc; only create a new `CONTEXT/<topic>.md` if none fits, and link it from `CONTEXT/project-overview.md`.
+- **State in your final summary which doc(s) you updated**, or say "no doc update needed" and why.
+- **Trivial-change exception**: typos, comments, formatting, or dependency bumps with no behavior change — but say so deliberately.
+
+## Timestamp and Timezone Standard
+
+Any timestamp in UI, reports, logs, exports, API payloads, or documentation must make its timezone explicit. Prefer timezone-aware UTC for storage and transport, then label display values with the rendered abbreviation or offset (`Jun 1, 2026, 1:03 PM GMT+8` or `2026-06-01T05:03:00Z`). Date-only fields need no label unless derived from a timestamp.
