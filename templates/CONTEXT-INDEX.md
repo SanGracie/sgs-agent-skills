@@ -33,6 +33,7 @@ Companion docs: [`project-overview.md`](project-overview.md) and
 | What we already did in this repo | `work-log.md` + `admin/plans/` |
 | A Cursor skill failed / send to engineering | `skill-issues.md` + `.cursor/skills/report-skill-issue/SKILL.md` (dashboard Feedback, **Cursor skills**) |
 | GitHub comment or **request** | `.cursor/skills/github-collab/SKILL.md` + `.cursor/library-notes/github.md` — do not push to `sgs-agent-skills` |
+| Expense reports / Workday / reimbursement | `.cursor/skills/reimbursements/SKILL.md` |
 | Python, `.env`, installs | `.cursor/library-notes/machine-setup.md` + `.cursor/skills/setup-agent/SKILL.md` |
 | How to talk to non-engineers | `.cursor/library-notes/voice.md` |
 {{TASK_ROWS}}

@@ -87,6 +87,7 @@ Copy from `<library>/skills/` → `<target>/.cursor/skills/<name>/`:
 - `setup-agent`
 - `github-collab`
 - `report-skill-issue`
+- `reimbursements`
 - `extract-seesales`, `extract-tat-by-group`, `outlook-datadrop-rule`
   (skip LIMS only if they said no)
 
