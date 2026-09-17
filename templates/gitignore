@@ -1,0 +1,28 @@
+# Local Python envs
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets / local env (never commit)
+.env
+.env.*
+!.env.example
+
+# AniTa / LIMS local junk
+*.trc
+anita.wcf
+anita-bg.exe
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

@@ -28,7 +28,10 @@ Companion docs: [`project-overview.md`](project-overview.md) and
 
 | If your task touches… | Read first |
 |---|---|
-| Anything (orientation) | `project-overview.md`, then `conventions.md` |
+| Anything (orientation) | `project-overview.md`, then `sgs-and-team.md`, then `conventions.md` |
+| Who Logan / the techs / SGS NAM are | `sgs-and-team.md` (library author-notes; refresh on setup) |
+| GitHub comment, issue, or PR | `.cursor/skills/github-collab/SKILL.md` + `github.md` |
+| Python, `.env`, installs | `machine-setup.md` + `.cursor/skills/setup-agent/SKILL.md` |
 {{TASK_ROWS}}
 
 ## Doc inventory & trust tiers
@@ -37,4 +40,7 @@ Companion docs: [`project-overview.md`](project-overview.md) and
 |---|---|---|
 | `project-overview.md` | What this repo is, layout, who owns what | **A** |
 | `conventions.md` | Cross-cutting gotchas agents keep re-learning | **A** |
+| `sgs-and-team.md` | SGS NAM, Logan, Carl / Karl / David — from sgs-agent-skills | **A** |
+| `github.md` | When agents may comment / file GitHub requests | **A** |
+| `machine-setup.md` | Python 3.13, `.env`, full vs light install | **A** |
 | `INDEX.md` | This routing map | **A** |

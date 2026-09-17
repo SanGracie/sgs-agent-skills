@@ -22,7 +22,12 @@ explain it.
 - Update `CONTEXT/` in the same change that alters behavior. The task is not
   done until the matching doc exists or you explicitly say why none is needed.
 
-## Secrets
+## Secrets and local env
 
 Never commit `.env`, passwords, tokens, or credential files. Production secrets
-live in the platform secret store, not in git.
+live in the platform secret store, not in git. `.gitignore` must include `.env`,
+`.env.*` (with `!.env.example`), `venv/`, `__pycache__/`, `*.trc`, `anita.wcf`.
+
+Start secrets from `.env.example`. Create `.env` on the machine; leave
+password values blank in chat. AniTa LIMS skills read `ANITA_USER` /
+`ANITA_PASSWORD` / `ANITA_HOST` from process env or that file.

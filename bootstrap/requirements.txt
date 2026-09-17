@@ -1,0 +1,4 @@
+# Packages the LIMS / setup skill scripts need.
+# Full setup (IT) installs this file. Add new skill deps here.
+python-dotenv>=1.0.0
+pillow>=10.0.0

@@ -1,50 +1,53 @@
 ---
 name: setup-agent
 description: >-
-  Sets up a Cursor agent workspace from the SGS sgs-agent-skills library:
-  copies LIMS skills, writes a personalized .cursor/rules/workspace.mdc,
-  and creates CONTEXT/ docs plus admin/plans. Use when the user says
-  help me get set up, set up cursor, set up the agent, create cursor
-  rules, CONTEXT folder, onboard this repo, or personalize my rules.
+  Sets up a Cursor agent workspace from sgs-agent-skills: copies LIMS
+  and GitHub skills, writes a personalized .cursor/rules/workspace.mdc,
+  CONTEXT docs, .gitignore, .env.example / .env, and SGS/team author-notes.
+  Full (IT) track can install Python 3.13, gh, and pip requirements.
+  Use when the user says help me get set up, set up cursor, set up the
+  agent, create cursor rules, CONTEXT folder, onboard this repo,
+  refresh skills, or install Python / .env.
 ---
 
 # Setup a Cursor agent workspace
 
 Turn the user's **working repo** into a Logan-style Cursor workspace,
-filled in with **their** name, role, and repo — not a copy of
+filled in with **their** name and **this** repo — not a dump of
 `ehscloudreporting`.
 
-This library's templates live in `templates/` next to `skills/`.
+Library layout: `skills/`, `templates/`, `author-notes/`, `bootstrap/`.
+
+Also read [full-install.md](full-install.md) on the IT track.
 
 ## Do not
 
-- Copy `ehs_dashboard/CONTEXT/` or any other app's architecture docs
-  into a different repo.
-- Create more than **one** `.mdc` file in the target. The only rule
-  file is `.cursor/rules/workspace.mdc`.
+- Copy `ehs_dashboard/CONTEXT/` into a different repo.
+- Create more than **one** `.mdc` — only `.cursor/rules/workspace.mdc`.
 - Put `.cursor/rules/` inside an app package.
-- Commit `.env`, passwords, tokens, `.trc`, or `anita.wcf`.
-- Run this against the `sgs-agent-skills` library itself unless the user
-  explicitly wants docs in this repo.
+- Commit `.env`, passwords, tokens, `*.trc`, or `anita.wcf`.
+- Paste passwords into chat. Leave `ANITA_PASSWORD` blank in `.env`.
+- Run this against `sgs-agent-skills` itself unless they asked.
+- Fight Group Policy on a locked-down tech laptop. File-setup still
+  runs; installs become a leftover list.
 
 ## Resolve paths
 
-1. **Library root** — folder that contains `skills/` and `templates/`.
-   Walk up from this `SKILL.md` (`skills/setup-agent/`). If this skill
-   was copied into a project as `.cursor/skills/setup-agent/` and
-   `templates/` is missing, clone
-   `https://github.com/logan-bishop-sgs/sgs-agent-skills` to a temp dir
-   and use that as the library root.
-2. **Target root** — the git repo the user wants set up.
+1. **Library root** — folder with `skills/`, `templates/`,
+   `author-notes/`. Walk up from this `SKILL.md`. If this skill was
+   copied into `.cursor/skills/setup-agent/` and those folders are
+   missing, clone
+   `https://github.com/logan-bishop-sgs/sgs-agent-skills` to a temp
+   dir and use that.
+2. **Target root** — the working git repo.
    - If the current workspace **is** `sgs-agent-skills`, ask for the
-     working-repo path (their dashboard, V3 clone, etc.).
+     working-repo path.
    - Otherwise the current workspace is the target.
-   - Never guess a OneDrive sibling. Confirm the path exists
-     (`Test-Path`) before writing.
+   - Confirm `Test-Path` before writing.
 
-## Interview (do this first)
+## Interview
 
-Ask, or infer from git/user config and the repo, then confirm:
+Ask or infer, then confirm:
 
 | Field | Example |
 |---|---|
@@ -52,49 +55,91 @@ Ask, or infer from git/user config and the repo, then confirm:
 | Role | Data technician, NAM EHS |
 | Team | Manila / reports to Logan Bishop |
 | Expertise | one line |
-| What this repo is | one line a new tech would need |
-| Primary app folder | `ehs_dashboard`, repo root, etc. |
+| What this repo is | one line |
+| Primary app folder | `ehs_dashboard`, repo root, … |
 | Install LIMS skills? | default **yes** for NAM EHS |
+| **Track** | **full** (Logan / IT, may install software) or **light** (tech laptop) |
 
-Use `AskQuestion` when you need a choice (target path, overwrite
-existing rules, include LIMS). Do not block on polish — a short
-role line is enough.
+Default **full** if the user is Logan Bishop or they said IT / install
+Python / do everything. Default **light** for data techs unless they
+ask for installs. Use `AskQuestion` for track, target path, overwrite.
 
-## Explore the target before writing layout
+Refresh-only ("refresh skills", "update from sgs-agent-skills"): skip
+personalization; recopy skills + author-notes + bootstrap requirements
+into CONTEXT; do not wipe Developer Context in `workspace.mdc`.
 
-Read the target. Do not invent folders.
+## Explore the target
 
-- `git rev-parse --show-toplevel`, `git remote -v`, top-level listing
-- README, `app/`, `src/`, deploy scripts
-- Existing `.cursor/`, `CONTEXT/`, `admin/`
-- Gitignored sibling repos (name them in layout; do not add them)
+Read it. Do not invent folders.
 
-If `workspace.mdc` or `CONTEXT/INDEX.md` already exists, show a
-diff of what you would change and **ask before overwrite**. Merge
-Developer Context; do not wipe a layout section you did not verify.
+- `git rev-parse --show-toplevel`, remotes, top-level listing
+- Existing `.cursor/`, `CONTEXT/`, `admin/`, `.gitignore`, `.env*`
+- `requirements.txt` / `pyproject.toml`
 
-## Install skills
+If `workspace.mdc` or `CONTEXT/INDEX.md` already exists, show what you
+would change and **ask before overwrite**. Merge Developer Context.
 
-Copy these folders from `<library>/skills/` into
-`<target>/.cursor/skills/<name>/`:
+## 1. Install skills
 
-- `setup-agent` (this skill)
-- `extract-seesales`
-- `extract-tat-by-group`
-- `outlook-datadrop-rule`
+Copy from `<library>/skills/` → `<target>/.cursor/skills/<name>/`:
 
-Skip LIMS folders only if the user said no. Overwrite skill copies
-from this library (they are the source). Keep any extra skills
-already in the target.
+- `setup-agent`
+- `github-collab`
+- `extract-seesales`, `extract-tat-by-group`, `outlook-datadrop-rule`
+  (skip LIMS only if they said no)
 
-LIMS skills currently assume a Windows PC with AniTa + VPN and
-`ANITA_PASSWORD` in the process env / repo `.env` (not git). Paths
-inside those skills are `.cursor/skills/...` — correct after copy.
+Overwrite copies that came from this library. Keep extra skills already
+in the target.
 
-## Write files from templates
+## 2. Author notes → CONTEXT (library-owned)
 
-Read each file in `<library>/templates/` and substitute placeholders.
-Today's date is the user_info date (`YYYY-MM-DD`).
+Copy (overwrite these three; they are meant to update):
+
+| From `<library>/author-notes/` | To `<context-dir>/` |
+|---|---|
+| `sgs-and-team.md` | `sgs-and-team.md` |
+| `github.md` | `github.md` |
+| `machine-setup.md` | `machine-setup.md` |
+
+Do not copy `author-notes/README.md` into the app. Logan edits notes
+**in this GitHub repo**, then setup/refresh ships them.
+
+**Context dir:** `<target>/<app>/CONTEXT/` if there is a primary app
+folder, else `<target>/CONTEXT/`.
+
+## 3. .gitignore
+
+If the target has no `.gitignore`, copy `templates/gitignore`.
+
+If it has one, **merge** — ensure these patterns exist, do not delete
+theirs:
+
+```
+.env
+.env.*
+!.env.example
+venv/
+.venv/
+__pycache__/
+*.trc
+anita.wcf
+```
+
+## 4. .env.example and .env
+
+- If the target **has no** `.env.example`, copy `templates/env.example`
+  to `<target>/.env.example`.
+- If it **has** one, append any missing keys from the template
+  (`ANITA_USER`, `ANITA_PASSWORD`, `ANITA_HOST`) with comments. Do not
+  strip dashboard keys.
+- If `<target>/.env` is missing, copy `.env.example` → `.env`.
+- Never fill password values. Tell them to edit `.env` locally (or
+  User env). Confirm `.env` is gitignored (`git check-ignore -v .env`).
+
+## 5. Rules and CONTEXT templates
+
+Read `<library>/templates/` and substitute placeholders. Today's date
+is the user_info date (`YYYY-MM-DD`).
 
 | Template | Write to |
 |---|---|
@@ -105,56 +150,47 @@ Today's date is the user_info date (`YYYY-MM-DD`).
 | `admin-plans-README.md` | `<target>/admin/plans/README.md` |
 | `admin-CONTEXT-subagents.md` | `<target>/admin/CONTEXT/subagents.md` |
 
-**Context dir:** if there is a clear primary app folder, use
-`<target>/<app>/CONTEXT/`. Otherwise `<target>/CONTEXT/`.
+Placeholders: `{{TODAY}}` `{{NAME}}` `{{ROLE}}` `{{TEAM}}`
+`{{EXPERTISE}}` `{{BUSINESS}}` `{{WORKSPACE_TITLE}}` `{{REPO_ONE_LINER}}`
+`{{PRIMARY_APP}}` `{{CONTEXT_DIR}}` `{{CONTEXT_INDEX_PATH}}`
+`{{REPO_LAYOUT}}` (from **this** explore) `{{DIAGNOSIS_LINE}}`
+`{{TASK_ROWS}}` `{{WHERE_NEW_WORK_GOES}}`.
 
-**Placeholders**
+Replace every `{{...}}`. INDEX already has SGS/GitHub rows; still add
+LIMS rows when those skills are installed.
 
-- `{{TODAY}}` `{{NAME}}` `{{ROLE}}` `{{TEAM}}` `{{EXPERTISE}}` `{{BUSINESS}}`
-- `{{WORKSPACE_TITLE}}` — short title for the repo
-- `{{REPO_ONE_LINER}}` — what it is
-- `{{PRIMARY_APP}}` — folder or repo name INDEX talks about
-- `{{CONTEXT_DIR}}` — e.g. `ehs_dashboard/CONTEXT`
-- `{{CONTEXT_INDEX_PATH}}` — e.g. `ehs_dashboard/CONTEXT/INDEX.md`
-- `{{REPO_LAYOUT}}` — markdown from **your explore**, not from
-  `ehscloudreporting`'s layout. Name each top-level area, what must
-  not be deployed, and which folders are other git repos.
-- `{{DIAGNOSIS_LINE}}` — if a `diagnosis.md` exists, link it; else
-  one sentence pointing at logs + health.
-- `{{TASK_ROWS}}` — extra INDEX rows for real features you found
-  (`| Accutest SEE SALES extract | \`.cursor/skills/extract-seesales/SKILL.md\``)
-- `{{WHERE_NEW_WORK_GOES}}` — where new routes/scripts/docs go in
-  **this** repo. If you cannot tell, write "ask before inventing a
-  package" rather than copying another app's table.
+Create `admin/plans/active/` and `completed/` (`.gitkeep` if tracked).
+If `admin/` is gitignored, write anyway and say local-only.
 
-Replace every `{{...}}`. Do not leave placeholders.
+## 6. Machine install (full track only)
 
-Create empty `admin/plans/active/` and `admin/plans/completed/`
-(add a `.gitkeep` if the target tracks them in git).
+Read [full-install.md](full-install.md). Run:
 
-If `admin/` is gitignored in the target, still write the files on
-disk and tell the user they are local-only.
+```powershell
+powershell -File "<library>/bootstrap/install-machine.ps1" -TargetRoot "<target>" -LibraryRoot "<library>"
+```
 
-## INDEX rows for LIMS (when those skills are installed)
+Recommend Python **3.13**. 3.11+ is acceptable if 3.13 cannot install.
+If winget hangs on UAC, stop, keep files, list leftovers.
 
-Add to the task table:
+Light track: skip this script. List Python 3.13, `gh`, and pip as
+"ask IT".
 
-| Accutest SEE SALES AniTa extract | `.cursor/skills/extract-seesales/SKILL.md` |
-| Accutest TAT by service group | `.cursor/skills/extract-tat-by-group/SKILL.md` |
-| Outlook datadrop forward rule | `.cursor/skills/outlook-datadrop-rule/SKILL.md` |
+After full install, if `gh` is present and `gh auth status` fails,
+offer `gh auth login --web` (human completes the browser).
 
 ## Finish
 
-1. Confirm the one rule file: `Get-ChildItem -Recurse .cursor/rules`
-   must be a single `workspace.mdc`.
-2. Confirm no leftover `{{PLACEHOLDER}}` in written files.
-3. Tell the user, in plain language:
-   - which folder is now the agent workspace
-   - that they should start a **new** Cursor chat in that repo so
-     skills and rules load
-   - LIMS extracts still need AniTa + VPN + `ANITA_PASSWORD`
-   - what you created, and that `CONTEXT/` is theirs to grow
+1. One rule file only: `.cursor/rules/workspace.mdc`.
+2. No leftover `{{PLACEHOLDER}}`.
+3. `.env` exists, is ignored, has no password you typed.
+4. Tell them, plainly:
+   - which folder is the agent workspace
+   - start a **new** Cursor chat there
+   - fill `ANITA_PASSWORD` locally if they use LIMS
+   - they can say **refresh skills** later to pull new author-notes
+   - GitHub: they can ask the agent to comment or open a PR (`github-collab`)
+   - full vs light: what got installed vs leftovers
 
-Do not commit unless they ask. If they want this library updated,
-commit in `sgs-agent-skills`, not in their app repo, unless they asked
-to save the new rules there.
+Do not commit unless they ask. Library updates belong in
+`sgs-agent-skills`.

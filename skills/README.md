@@ -2,9 +2,8 @@
 
 | Folder | Purpose |
 |---|---|
-| `setup-agent` | Personalized Cursor rules + CONTEXT + admin/plans |
+| `setup-agent` | Personalized Cursor rules, CONTEXT, `.env`, gitignore, optional Python 3.13 |
+| `github-collab` | `gh` comments, issues, pull requests |
 | `extract-seesales` | Accutest SEE SALES AniTa extract |
 | `extract-tat-by-group` | Accutest TAT by service group |
 | `outlook-datadrop-rule` | Outlook → datadrop → SharePoint |
-
-Copy these into a project as `.cursor/skills/<name>/`, or say **help me get set up** and let `setup-agent` do it.

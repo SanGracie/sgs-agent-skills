@@ -26,6 +26,14 @@ alwaysApply: true
 - **Business framing**: {{BUSINESS}}
 - **Write docs for the techs, not just for agents.** They did not live through the refactors. A stale path costs a person a morning.
 
+## SGS NAM (who we are)
+
+The person in Developer Context is **this machine's user**. Logan Bishop, the data techs (Carl, Karl, David), and how NAM EHS is organized live in `{{CONTEXT_DIR}}/sgs-and-team.md` (copied from the `sgs-agent-skills` author-notes). Read it. Do not invent reporting lines or lab ownership.
+
+GitHub comments / issues / PRs: `.cursor/skills/github-collab/SKILL.md` and `{{CONTEXT_DIR}}/github.md`. Most NAM EHS **apps** stay on Azure DevOps — do not move them to GitHub unless asked. Never force-push `main`.
+
+Machine / `.env` / Python: `{{CONTEXT_DIR}}/machine-setup.md`. Secrets never go in git or chat.
+
 ## Repository Layout
 
 {{REPO_LAYOUT}}
