@@ -34,6 +34,7 @@ Companion docs: [`project-overview.md`](project-overview.md) and
 | A Cursor skill failed / send to engineering | `skill-issues.md` + `.cursor/skills/report-skill-issue/SKILL.md` (dashboard Feedback, **Cursor skills**) |
 | GitHub comment or **request** | `.cursor/skills/github-collab/SKILL.md` + `.cursor/library-notes/github.md` — do not push to `sgs-agent-skills` |
 | Python, `.env`, installs | `.cursor/library-notes/machine-setup.md` + `.cursor/skills/setup-agent/SKILL.md` |
+| How to talk to non-engineers | `.cursor/library-notes/voice.md` |
 {{TASK_ROWS}}
 
 ## Doc inventory & trust tiers

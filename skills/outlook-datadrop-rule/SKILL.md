@@ -11,7 +11,11 @@ description: >-
 
 # Outlook → datadrop → SharePoint
 
-AniTa emails Logan's mailbox. Those files show up in SharePoint
+**Talk to the user** with `.cursor/library-notes/voice.md`. Just fix the
+mail rule. When done: "Mail will now land on SharePoint by itself. You
+don't need to forward it."
+
+AniTa emails the user's mailbox. Those files show up in SharePoint
 **only if** an Outlook rule **forwards** the message to
 `us.ehs.datadrop@sgs.com`. Power Automate on that mailbox drops the
 attachment into the dated folder. No rule (or a delete rule) means
@@ -22,8 +26,8 @@ https://sgs.sharepoint.com/sites/reg-nam-fin-teamsite/NAMFINBIUploads/LIMSBISyne
 Same drop as daily `la-closed` / WIP discs:
 `EHS KPI Data/Power Automate Updates/<YYYY-MM-DD>/`.
 
-The agent **can and should** set this rule up. Do not tell Logan to
-do it by hand first. Run the script on this PC with Outlook open.
+The agent **can and should** set this rule up. Do not tell the user
+to do it by hand first. Run the script on this PC with Outlook open.
 
 ```powershell
 # See what LIMS rules do today

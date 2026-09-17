@@ -11,7 +11,11 @@ Cursor agent in plain language. Engineering already gave the skills
 (LIMS extracts, Outlook datadrop, setup). They should not need to know
 git, AniTa internals, or how to write a SKILL.md.
 
-Setup is one sentence: **help me get set up** in the working repo.
+Setup is one sentence: **help me get set up**.
+
+**Talk like a person.** Short. No engineering words. Do the work.
+Ask only when only they can help (lab, month, password, yes/no).
+Full voice rules: `voice.md`.
 
 ## Two places to write
 

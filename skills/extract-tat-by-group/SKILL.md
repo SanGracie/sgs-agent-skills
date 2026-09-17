@@ -8,7 +8,12 @@ description: >-
 
 # Extract TAT by group
 
-Run this on Logan's Windows PC with AniTa installed. **One Export is
+**Talk to the user** with `.cursor/library-notes/voice.md`: short, no
+engineering words. Do the work. Ask only lab + months. When done: "TAT
+by group for Houston this month is done. It should show on SharePoint
+soon." This script is for you, not for them to run.
+
+Run this on a Windows PC with AniTa installed. **One Export is
 one calendar month.** September is only September — not YTD. A range
 that spans months blends averages.
 

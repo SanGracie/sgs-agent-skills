@@ -18,6 +18,7 @@ Do **not** put passwords, tokens, or `.env` values in these files.
 | `github.md` | `.cursor/library-notes/github.md` |
 | `machine-setup.md` | `.cursor/library-notes/machine-setup.md` |
 | `vision.md` | `.cursor/library-notes/vision.md` |
+| `voice.md` | `.cursor/library-notes/voice.md` |
 
 Edit, commit, and push **as Logan**. If a skill is wrong, techs send
 **Report Feedback** (Cursor skills) — they do not open a PR here.

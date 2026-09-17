@@ -9,6 +9,18 @@ alwaysApply: true
 
 {{REPO_ONE_LINER}}
 
+## How to talk to this person
+
+They are **not** a software engineer. Follow `.cursor/library-notes/voice.md`.
+
+- Do the work yourself. Do not ask engineering questions.
+- User-facing messages: short, plain words anybody could understand.
+- No git / `.env` / Python / script / API talk unless they asked.
+- Ask only for things only they can provide (which lab, which month, a password they type themselves, yes/no).
+- If a helper fails: try to fix it, save a note, then ask once whether to send it to the team (dashboard Submit). Do not explain the internals.
+
+The rest of this file is for **you** (the agent). Do not read it out loud to them.
+
 ## Start here
 
 **For ANY {{PRIMARY_APP}} task, read `{{CONTEXT_INDEX_PATH}}` first.** It routes you to the right doc per task and carries trust tiers. Do not read the whole `CONTEXT/` tree — INDEX exists so you don't have to.
@@ -44,7 +56,7 @@ Write only in **this** working repo:
 - `{{CONTEXT_DIR}}/work-log.md` — append what this agent/person did
 - `admin/plans/` — how a build will be implemented
 
-Never update the GitHub skills library to "keep notes." If the library should change, tell Logan or file a GitHub **issue** on `sgs-agent-skills`.
+Never update the GitHub skills library to "keep notes." If a helper is wrong, use `report-skill-issue` (dashboard Feedback). Do not tell the user to file a GitHub issue.
 
 ## Repository Layout
 
@@ -89,7 +101,7 @@ A task is **not complete** until this project's docs are updated, even if the us
 - **You must update a `CONTEXT/` doc** if you add/remove/rename a feature, route, page, or endpoint; change architecture, data flow, schema, config keys, env vars, or integrations; change user-facing behavior or a contract another module depends on; or introduce a new convention or non-obvious gotcha.
 - Update the most relevant existing doc; only create a new `CONTEXT/<topic>.md` if none fits, and link it from `CONTEXT/project-overview.md` and `INDEX.md`.
 - Tick or add `admin/plans/` when the work was a planned build.
-- **State in your final summary which doc(s) you updated**, or say "no doc update needed" and why.
+- Do **not** tell the user about CONTEXT files unless they asked. Just do the work.
 - **Do not** edit `.cursor/library-notes/`, `.cursor/skills/` copies from the library, or the GitHub repo `sgs-agent-skills` to record work.
 - **Trivial-change exception**: typos, comments, formatting, or dependency bumps with no behavior change — but say so deliberately, and still append the work log if a human would ask "what did the agent do?"
 

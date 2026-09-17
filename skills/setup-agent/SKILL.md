@@ -50,27 +50,24 @@ Also read [full-install.md](full-install.md) on the IT track.
 
 ## Interview
 
-Ask or infer, then confirm:
+These people are not engineers. **Ask for name and work email only.**
+Infer everything else (role, folder layout, LIMS skills = yes for NAM
+EHS). Do not ask about app folders, Python, git, or "full vs light."
 
-| Field | Example |
-|---|---|
-| Name | Carl Santos |
-| Role | Data technician, NAM EHS |
-| Team | Manila / reports to Logan Bishop |
-| Expertise | one line |
-| What this repo is | one line |
-| Primary app folder | `ehs_dashboard`, repo root, … |
-| Install LIMS skills? | default **yes** for NAM EHS |
-| SGS email | first.last@sgs.com (pre-fill `SGS_EMAIL`) |
-| AniTa / LIMS username | if they have one (`ANITA_USER` only — never ask them to paste the password into chat) |
-| **Track** | **full** (Logan / IT, may install software) or **light** (tech laptop) |
+- Default **light** (files only) unless they are Logan / IT or they
+  said to install programs.
+- Never ask them to paste a LIMS password into chat. If login is
+  needed later, say: "You'll type your LIMS password in a small
+  settings file I'll open — I won't look."
 
-Default **full** if the user is Logan Bishop or they said IT / install
-Python / do everything. Default **light** for data techs unless they
-ask for installs. Use `AskQuestion` for track, target path, overwrite.
+Refresh-only ("refresh skills"): recopy **skills** +
+**`.cursor/library-notes/`**. Do **not** wipe their CONTEXT or work log.
 
-Refresh-only ("refresh skills"): recopy **skills** + **`.cursor/library-notes/`**
-from GitHub. Do **not** wipe Developer Context, `CONTEXT/`, or `work-log.md`.
+When you speak to them during setup, follow `author-notes/voice.md`
+(short, plain). Example finish:
+
+> You're set. Open a new chat here and say what you need, like
+> "pull this month's SEE SALES for Houston."
 
 ## Explore the target
 
@@ -105,6 +102,7 @@ Copy (overwrite; Logan-owned) from `<library>/author-notes/` →
 - `github.md`
 - `machine-setup.md`
 - `vision.md`
+- `voice.md`
 
 Do not copy `author-notes/README.md`. Do **not** put these files in
 `CONTEXT/` — that folder is the user's.
@@ -188,27 +186,25 @@ powershell -File "<library>/bootstrap/install-machine.ps1" -TargetRoot "<target>
 Recommend Python **3.13**. 3.11+ is acceptable if 3.13 cannot install.
 If winget hangs on UAC, stop, keep files, list leftovers.
 
-Light track: skip this script. List Python 3.13, `gh`, and pip as
-"ask IT".
-
-After full install, if `gh` is present and `gh auth status` fails,
-offer `gh auth login --web` (human completes the browser).
+Light track: skip this script. If something could not install, tell
+them in one sentence to ping Logan/IT. Do not list package names.
 
 ## Finish
 
 1. One rule file only: `.cursor/rules/workspace.mdc`.
 2. No leftover `{{PLACEHOLDER}}`.
-3. `.env` exists, is ignored, has `SGS_EMAIL` / `SGS_NAME` if known, and
-   no password you typed.
-4. Tell them, plainly:
-   - which folder is the agent workspace
-   - start a **new** Cursor chat there
-   - fill `ANITA_PASSWORD` in `.env` locally if they use LIMS
-   - **their** notes live in `CONTEXT/` + `work-log.md` — not on the
-     GitHub skills repo
-   - they can say **refresh skills** to pull Logan's library notes
-   - GitHub: comment or **file an issue**; do not push to `sgs-agent-skills`
-   - full vs light: what got installed vs leftovers
+3. `.env` exists, is ignored, has email/name if known, no password you typed.
+4. Say to them, and nothing more technical:
+
+> You're set. Open a new chat in this folder and tell it what you
+> need in normal words.
+
+If LIMS will be used and password is empty:
+
+> One extra step: I'll open a settings file. Type your LIMS password
+> on the password line. Don't paste it in this chat.
+
+Do not mention GitHub, CONTEXT, or leftover pip lists.
 
 Do not commit unless they ask. Never commit the library from a tech's
 setup session.

@@ -37,7 +37,10 @@ template if missing). Newest at the top. Timezone on the date.
 
 ## Then send to engineering (Feedback)
 
-Ask once: "Send this to engineering on the dashboard Feedback page?"
+Ask once, in plain words:
+
+> That helper hit a snag. I wrote down what happened. Want me to send
+> it to the team? I'll open a page — you just click Submit.
 
 If yes:
 
@@ -58,10 +61,12 @@ If `issue_text` is under 1500 characters, also add `&issue=` with
 URL-encoding. Longer drafts stay on the clipboard / in
 `skill-issues.md` — the user pastes into the box.
 
-6. They must be signed into the dashboard. They click **Submit
-   Feedback**. You cannot submit for them (session cookie).
-7. When they confirm it submitted, change **Sent to Feedback:** to
-   `yes` in `skill-issues.md`.
+6. They must be signed in. Tell them:
+
+> Sign in if it asks, check the text, click Submit.
+
+   You cannot click Submit for them.
+7. When they say it's sent, mark **Sent to Feedback:** `yes`.
 
 If they say no, leave **Sent to Feedback:** `no`. The local log is
 enough until they are ready.

@@ -1,6 +1,6 @@
 ﻿# SGS Agent Skills
 
-Shared [Cursor](https://cursor.com) Agent skills and workspace setup for SGS NAM EHS.
+Shared Cursor helpers for SGS NAM EHS. Built for **people who are not engineers**: they say what they need in normal words; the agent does the rest.
 
 Repo: https://github.com/logan-bishop-sgs/sgs-agent-skills
 
