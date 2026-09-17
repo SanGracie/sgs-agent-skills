@@ -25,8 +25,10 @@ and **light** (data tech laptop, locked down).
 5. Ensure `.gitignore` ignores `.env`, venv, `__pycache__`, `*.trc`,
    `anita.wcf`.
 6. Ensure `.env.example` exists; create `.env` from it if missing.
-   **Never write a real password.** Leave `ANITA_PASSWORD` empty and
-   tell the human to fill it locally (User env is also fine).
+   Pre-fill `SGS_EMAIL` and `SGS_NAME`. **Never write a real password.**
+   Leave `ANITA_PASSWORD` empty. Microsoft / Entra password is SSO — not
+   `.env`. Future keys stay commented in `.env.example` until a skill
+   needs them.
 
 If winget / MSI hits UAC and the user is not at the keyboard, stop the
 install, keep the file setup, and list what IT still needs.

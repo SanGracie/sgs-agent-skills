@@ -12,8 +12,10 @@ description: >-
 Prefer `gh`. Do not scrape the website. Auth: `gh auth status`. If not
 logged in, `gh auth login --web` and wait for the human.
 
-Read `CONTEXT/github.md` (copied from sgs-agent-skills author-notes)
-for NAM EHS (ADO vs GitHub) and what needs extra permission.
+Read `.cursor/library-notes/github.md` for NAM EHS (ADO vs GitHub)
+and the hard rule: **do not change** `logan-bishop-sgs/sgs-agent-skills`.
+Techs keep notes in **their** `CONTEXT/` and `work-log.md`. File an
+**issue** if the library should change.
 
 ## Comments
 
@@ -56,6 +58,8 @@ gh issue list
 
 ## Do not
 
+- Edit, commit, or push `logan-bishop-sgs/sgs-agent-skills` (unless the
+  user is Logan and explicitly asked to update the library)
 - `git push --force` to `main` / `master`
 - Merge or close unless they asked
 - Change collaborators, visibility, or org settings

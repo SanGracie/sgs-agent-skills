@@ -1,19 +1,30 @@
-# GitHub — comments, issues, pull requests
+# GitHub — comments and requests
 
 > Last verified: 2026-09-17
 
-Library-owned. Agents **may** use GitHub on the user's behalf when the
-work is a GitHub repo (this skills library, or any repo they open that
-has a `github.com` remote).
+Library-owned. Read-only copy in `.cursor/library-notes/github.md`.
 
-Use the GitHub CLI (`gh`). Skill: `.cursor/skills/github-collab/SKILL.md`.
+Use `gh`. Skill: `.cursor/skills/github-collab/SKILL.md`.
+
+## sgs-agent-skills is Logan's
+
+`https://github.com/logan-bishop-sgs/sgs-agent-skills` is the shared
+library. **Other agents must not change it** — no commits, no pushes, no
+PRs, no edits to `author-notes/`, `skills/`, or `templates/`.
+
+If a skill or note is wrong: file a GitHub **issue** (a request) for
+Logan, and keep working in **this** repo's `CONTEXT/` + `work-log.md`.
+
+Logan may update the library when he asks an agent to.
 
 ## What you may do without extra permission
 
 - Read issues, PRs, checks, and file contents.
-- Comment on an issue or PR the user is talking about.
-- Open a **draft or ready** PR after they asked to create one.
-- Open an issue if they asked to file a request / bug / follow-up.
+- Comment on an issue or PR the user is talking about (not to sneak
+  library edits through a comment).
+- Open an **issue** if they asked to file a request / bug / follow-up.
+- Open a PR on **their** GitHub repo (not `sgs-agent-skills`) after they
+  asked.
 
 ## What you must ask first
 
@@ -27,13 +38,12 @@ Use the GitHub CLI (`gh`). Skill: `.cursor/skills/github-collab/SKILL.md`.
 | Host | What lives there |
 |---|---|
 | Azure DevOps `SGS-NAM-Dev` | `ehs_dashboard`, V3, most production apps |
-| GitHub `logan-bishop-sgs/sgs-agent-skills` | Cursor skills, setup, author-notes |
+| GitHub `logan-bishop-sgs/sgs-agent-skills` | Cursor skills + Logan's author-notes (hands off) |
 
 Do not add this skills library as a second remote on an ADO repo.
 
 ## Account
 
-Prefer the SGS GitHub user (`logan-bishop-sgs` for Logan). Techs should
-`gh auth login` with their own SGS-linked GitHub account. `gh` is not
-always installed — full setup (IT) installs it; light setup tells them
-to ask IT.
+`SGS_EMAIL` in `.env` is this user's SGS identity. `gh auth login` with
+their own SGS-linked GitHub account. Logan's GitHub user is
+`logan-bishop-sgs`.

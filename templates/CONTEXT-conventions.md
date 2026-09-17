@@ -19,8 +19,9 @@ explain it.
 ## Docs
 
 - Point at code rather than copying lists that will drift.
-- Update `CONTEXT/` in the same change that alters behavior. The task is not
-  done until the matching doc exists or you explicitly say why none is needed.
+- Update **this repo's** `CONTEXT/` in the same change that alters behavior.
+- Append [`work-log.md`](work-log.md) every session.
+- Do not edit GitHub `sgs-agent-skills` or `.cursor/library-notes/` to record work.
 
 ## Secrets and local env
 
@@ -28,6 +29,12 @@ Never commit `.env`, passwords, tokens, or credential files. Production secrets
 live in the platform secret store, not in git. `.gitignore` must include `.env`,
 `.env.*` (with `!.env.example`), `venv/`, `__pycache__/`, `*.trc`, `anita.wcf`.
 
-Start secrets from `.env.example`. Create `.env` on the machine; leave
-password values blank in chat. AniTa LIMS skills read `ANITA_USER` /
-`ANITA_PASSWORD` / `ANITA_HOST` from process env or that file.
+Start from `.env.example`. Create `.env` on the machine.
+
+| Key | What |
+|---|---|
+| `SGS_EMAIL` / `SGS_NAME` | This user's SGS identity. Microsoft password is SSO — not `.env`. |
+| `ANITA_USER` / `ANITA_PASSWORD` / `ANITA_HOST` | Accutest LIMS. Password belongs in `.env`. |
+| Commented keys | Future skills. Uncomment when needed; add the same name to `.env.example`. |
+
+Leave password values blank in chat.

@@ -28,11 +28,21 @@ alwaysApply: true
 
 ## SGS NAM (who we are)
 
-The person in Developer Context is **this machine's user**. Logan Bishop, the data techs (Carl, Karl, David), and how NAM EHS is organized live in `{{CONTEXT_DIR}}/sgs-and-team.md` (copied from the `sgs-agent-skills` author-notes). Read it. Do not invent reporting lines or lab ownership.
+The person in Developer Context is **this machine's user**. Logan Bishop, the data techs (Carl, Karl, David), and how NAM EHS is organized live in `.cursor/library-notes/sgs-and-team.md` (read-only copy from GitHub `sgs-agent-skills`). Read it. Do not invent reporting lines. Do not edit those files — Logan updates them in the library.
 
-GitHub comments / issues / PRs: `.cursor/skills/github-collab/SKILL.md` and `{{CONTEXT_DIR}}/github.md`. Most NAM EHS **apps** stay on Azure DevOps — do not move them to GitHub unless asked. Never force-push `main`.
+GitHub comments / issues / PRs: `.cursor/skills/github-collab/SKILL.md` and `.cursor/library-notes/github.md`. You may comment or file a **request** on GitHub. You must **not** change `logan-bishop-sgs/sgs-agent-skills` (no commits, no PRs, no author-note edits) unless you are Logan and he asked. Most NAM EHS **apps** stay on Azure DevOps.
 
-Machine / `.env` / Python: `{{CONTEXT_DIR}}/machine-setup.md`. Secrets never go in git or chat.
+Machine / `.env` / Python: `.cursor/library-notes/machine-setup.md`. `.env` holds this user's `SGS_EMAIL` / `SGS_NAME` and LIMS (`ANITA_*`). Microsoft password stays in SSO, not `.env`. Never put secrets in git or chat.
+
+## Your docs (not the GitHub library)
+
+Write only in **this** working repo:
+
+- `{{CONTEXT_DIR}}/` — architecture and gotchas for this project
+- `{{CONTEXT_DIR}}/work-log.md` — append what this agent/person did
+- `admin/plans/` — how a build will be implemented
+
+Never update the GitHub skills library to "keep notes." If the library should change, tell Logan or file a GitHub **issue** on `sgs-agent-skills`.
 
 ## Repository Layout
 
@@ -60,7 +70,7 @@ Full playbook: `admin/CONTEXT/subagents.md`.
 - **One agent session = one plan file** unless the user combines scopes. A session *may* fan out subagents against that one plan file.
 - When a build ships, tick that batch's checklist. When every plan in a batch is done, move the folder to `completed/` and update the index. **After moving a batch, grep `CONTEXT/` for `admin/plans/active/<batch>` and repoint those citations.**
 
-`admin/plans/` is *how to implement*; `CONTEXT/` is *long-lived architecture*.
+`admin/plans/` is *how to implement*; `CONTEXT/` is *long-lived architecture* for **this repo**; `CONTEXT/work-log.md` is *what we did*. None of those belong in `sgs-agent-skills`.
 
 ## Documentation Convention & Maintenance
 
@@ -69,14 +79,17 @@ Full playbook: `admin/CONTEXT/subagents.md`.
 - Every `CONTEXT/` doc carries a single `> Last verified: YYYY-MM-DD` line at the top. Update it when you change the doc. One stamp per file — do not stack changelog paragraphs.
 - **Point at code rather than copying it.** Where a declarative table exists in code, link to it. Copied lists are what drift.
 
-### MANDATORY: update docs before finishing
+### MANDATORY: keep track in THIS repo before finishing
 
-A task is **not complete** until docs are updated, even if the user did not ask.
+A task is **not complete** until this project's docs are updated, even if the user did not ask.
 
+- Append `{{CONTEXT_DIR}}/work-log.md` with what happened (timezone on the date).
 - **You must update a `CONTEXT/` doc** if you add/remove/rename a feature, route, page, or endpoint; change architecture, data flow, schema, config keys, env vars, or integrations; change user-facing behavior or a contract another module depends on; or introduce a new convention or non-obvious gotcha.
-- Update the most relevant existing doc; only create a new `CONTEXT/<topic>.md` if none fits, and link it from `CONTEXT/project-overview.md`.
+- Update the most relevant existing doc; only create a new `CONTEXT/<topic>.md` if none fits, and link it from `CONTEXT/project-overview.md` and `INDEX.md`.
+- Tick or add `admin/plans/` when the work was a planned build.
 - **State in your final summary which doc(s) you updated**, or say "no doc update needed" and why.
-- **Trivial-change exception**: typos, comments, formatting, or dependency bumps with no behavior change — but say so deliberately.
+- **Do not** edit `.cursor/library-notes/`, `.cursor/skills/` copies from the library, or the GitHub repo `sgs-agent-skills` to record work.
+- **Trivial-change exception**: typos, comments, formatting, or dependency bumps with no behavior change — but say so deliberately, and still append the work log if a human would ask "what did the agent do?"
 
 ## Timestamp and Timezone Standard
 

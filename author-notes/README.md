@@ -1,20 +1,22 @@
-# Author notes (Logan)
+# Author notes (Logan only)
 
 > Last verified: 2026-09-17
 
-Write living context **here**, in this library. `setup-agent` copies these
-files into each working repo as `CONTEXT/sgs-and-team.md` and
-`CONTEXT/github.md` (library-owned). The next setup or "refresh skills"
-run overwrites those copies so new agents pick up your updates.
+Write living SGS/team context **here**. Techs' agents must not edit this
+folder or push to this GitHub repo.
+
+`setup-agent` copies these files into each working repo as
+**`.cursor/library-notes/`** (read-only). Refresh overwrites that folder
+only. Each person keeps their own `CONTEXT/` and `work-log.md` in the
+app repo.
 
 Do **not** put passwords, tokens, or `.env` values in these files.
 
 | File | Lands in the working repo as |
 |---|---|
-| `sgs-and-team.md` | `CONTEXT/sgs-and-team.md` |
-| `github.md` | `CONTEXT/github.md` |
-| `machine-setup.md` | `CONTEXT/machine-setup.md` |
+| `sgs-and-team.md` | `.cursor/library-notes/sgs-and-team.md` |
+| `github.md` | `.cursor/library-notes/github.md` |
+| `machine-setup.md` | `.cursor/library-notes/machine-setup.md` |
 
-Edit, commit, and push this folder. Techs do not need to edit the copies
-in their app repos unless they are adding *project* facts — those go in
-that repo's own `CONTEXT/`.
+Edit, commit, and push **as Logan**. If a tech needs a library change,
+they file a GitHub **issue** — they do not open a PR against these notes.

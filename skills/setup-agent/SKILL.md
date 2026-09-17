@@ -27,9 +27,12 @@ Also read [full-install.md](full-install.md) on the IT track.
 - Put `.cursor/rules/` inside an app package.
 - Commit `.env`, passwords, tokens, `*.trc`, or `anita.wcf`.
 - Paste passwords into chat. Leave `ANITA_PASSWORD` blank in `.env`.
-- Run this against `sgs-agent-skills` itself unless they asked.
+- Run this against `sgs-agent-skills` itself unless **Logan** asked to
+  change the library. Techs' working repo is never this GitHub repo.
 - Fight Group Policy on a locked-down tech laptop. File-setup still
   runs; installs become a leftover list.
+- Let a tech agent "improve" `author-notes/`, `skills/`, or `templates/`
+  on GitHub. They write `CONTEXT/` + `work-log.md` in **their** repo.
 
 ## Resolve paths
 
@@ -58,15 +61,16 @@ Ask or infer, then confirm:
 | What this repo is | one line |
 | Primary app folder | `ehs_dashboard`, repo root, … |
 | Install LIMS skills? | default **yes** for NAM EHS |
+| SGS email | first.last@sgs.com (pre-fill `SGS_EMAIL`) |
+| AniTa / LIMS username | if they have one (`ANITA_USER` only — never ask them to paste the password into chat) |
 | **Track** | **full** (Logan / IT, may install software) or **light** (tech laptop) |
 
 Default **full** if the user is Logan Bishop or they said IT / install
 Python / do everything. Default **light** for data techs unless they
 ask for installs. Use `AskQuestion` for track, target path, overwrite.
 
-Refresh-only ("refresh skills", "update from sgs-agent-skills"): skip
-personalization; recopy skills + author-notes + bootstrap requirements
-into CONTEXT; do not wipe Developer Context in `workspace.mdc`.
+Refresh-only ("refresh skills"): recopy **skills** + **`.cursor/library-notes/`**
+from GitHub. Do **not** wipe Developer Context, `CONTEXT/`, or `work-log.md`.
 
 ## Explore the target
 
@@ -91,21 +95,21 @@ Copy from `<library>/skills/` → `<target>/.cursor/skills/<name>/`:
 Overwrite copies that came from this library. Keep extra skills already
 in the target.
 
-## 2. Author notes → CONTEXT (library-owned)
+## 2. Library notes (read-only) vs their CONTEXT
 
-Copy (overwrite these three; they are meant to update):
+Copy (overwrite; Logan-owned) from `<library>/author-notes/` →
+`<target>/.cursor/library-notes/`:
 
-| From `<library>/author-notes/` | To `<context-dir>/` |
-|---|---|
-| `sgs-and-team.md` | `sgs-and-team.md` |
-| `github.md` | `github.md` |
-| `machine-setup.md` | `machine-setup.md` |
+- `sgs-and-team.md`
+- `github.md`
+- `machine-setup.md`
 
-Do not copy `author-notes/README.md` into the app. Logan edits notes
-**in this GitHub repo**, then setup/refresh ships them.
+Do not copy `author-notes/README.md`. Do **not** put these files in
+`CONTEXT/` — that folder is the user's.
 
-**Context dir:** `<target>/<app>/CONTEXT/` if there is a primary app
-folder, else `<target>/CONTEXT/`.
+**Their context dir:** `<target>/<app>/CONTEXT/` if there is a primary
+app folder, else `<target>/CONTEXT/`. Create it even if empty of
+library notes. This is where agents keep project docs and `work-log.md`.
 
 ## 3. .gitignore
 
@@ -127,14 +131,20 @@ anita.wcf
 
 ## 4. .env.example and .env
 
-- If the target **has no** `.env.example`, copy `templates/env.example`
-  to `<target>/.env.example`.
-- If it **has** one, append any missing keys from the template
-  (`ANITA_USER`, `ANITA_PASSWORD`, `ANITA_HOST`) with comments. Do not
+Contract file is `templates/env.example` (`SGS_EMAIL`, `SGS_NAME`,
+`ANITA_*`, plus commented future keys).
+
+- If the target **has no** `.env.example`, copy the template to
+  `<target>/.env.example`.
+- If it **has** one, append any missing keys (`SGS_EMAIL`, `SGS_NAME`,
+  `ANITA_USER`, `ANITA_PASSWORD`, `ANITA_HOST`) with comments. Do not
   strip dashboard keys.
 - If `<target>/.env` is missing, copy `.env.example` → `.env`.
-- Never fill password values. Tell them to edit `.env` locally (or
-  User env). Confirm `.env` is gitignored (`git check-ignore -v .env`).
+- Pre-fill **non-secret** identity from the interview / `git config`:
+  `SGS_EMAIL`, `SGS_NAME`. Pre-fill `ANITA_USER` only if they gave it.
+- Never fill `ANITA_PASSWORD` or any Microsoft password. Tell them to
+  edit `.env` locally.
+- Confirm `.env` is gitignored (`git check-ignore -v .env`).
 
 ## 5. Rules and CONTEXT templates
 
@@ -147,6 +157,7 @@ is the user_info date (`YYYY-MM-DD`).
 | `CONTEXT-INDEX.md` | `<context-dir>/INDEX.md` |
 | `CONTEXT-project-overview.md` | `<context-dir>/project-overview.md` |
 | `CONTEXT-conventions.md` | `<context-dir>/conventions.md` |
+| `CONTEXT-work-log.md` | `<context-dir>/work-log.md` (create if missing; **never overwrite** an existing log) |
 | `admin-plans-README.md` | `<target>/admin/plans/README.md` |
 | `admin-CONTEXT-subagents.md` | `<target>/admin/CONTEXT/subagents.md` |
 
@@ -183,14 +194,17 @@ offer `gh auth login --web` (human completes the browser).
 
 1. One rule file only: `.cursor/rules/workspace.mdc`.
 2. No leftover `{{PLACEHOLDER}}`.
-3. `.env` exists, is ignored, has no password you typed.
+3. `.env` exists, is ignored, has `SGS_EMAIL` / `SGS_NAME` if known, and
+   no password you typed.
 4. Tell them, plainly:
    - which folder is the agent workspace
    - start a **new** Cursor chat there
-   - fill `ANITA_PASSWORD` locally if they use LIMS
-   - they can say **refresh skills** later to pull new author-notes
-   - GitHub: they can ask the agent to comment or open a PR (`github-collab`)
+   - fill `ANITA_PASSWORD` in `.env` locally if they use LIMS
+   - **their** notes live in `CONTEXT/` + `work-log.md` — not on the
+     GitHub skills repo
+   - they can say **refresh skills** to pull Logan's library notes
+   - GitHub: comment or **file an issue**; do not push to `sgs-agent-skills`
    - full vs light: what got installed vs leftovers
 
-Do not commit unless they ask. Library updates belong in
-`sgs-agent-skills`.
+Do not commit unless they ask. Never commit the library from a tech's
+setup session.

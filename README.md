@@ -19,11 +19,13 @@ Give the path to **your working repo** (dashboard, V3, a new project).
 
 Then start a **new chat** in the working repo.
 
-Later: **refresh skills** recopies skills + author-notes without wiping your name in `workspace.mdc`.
+Later: **refresh skills** recopies skills + `.cursor/library-notes/` only. It does not overwrite their `CONTEXT/` or `work-log.md`.
+
+Techs write in **their working repo**. They do not update this GitHub library. Need a skill change? File an issue. Logan edits [`author-notes/`](author-notes/README.md).
 
 ## Author notes (Logan)
 
-Edit [`author-notes/`](author-notes/README.md) in **this** repo. Setup copies them into each project as `CONTEXT/sgs-and-team.md`, `github.md`, and `machine-setup.md`, so every new agent learns who we are, how GitHub comments/PRs work, and how machines get Python / `.env`.
+Edit [`author-notes/`](author-notes/README.md) **in this repo**. Setup copies them to each project as `.cursor/library-notes/` (read-only). Each person also gets their own `CONTEXT/` (including `work-log.md`) and `.env.example` / `.env` with `SGS_EMAIL` + LIMS keys.
 
 ## Skills
 
@@ -40,8 +42,8 @@ LIMS skills need AniTa, VPN, and `ANITA_PASSWORD` in `.env` or User env (never g
 ## Layout
 
 ```
-author-notes/     # Logan writes here; setup ships copies
-bootstrap/        # install-machine.ps1 + requirements.txt
+author-notes/     # Logan only
+bootstrap/
 skills/
-templates/        # .gitignore, .env.example, rules, CONTEXT
+templates/        # gitignore, env.example, rules, CONTEXT starters
 ```
