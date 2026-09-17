@@ -21,18 +21,19 @@ Then start a **new chat** in the working repo.
 
 Later: **refresh skills** recopies skills + `.cursor/library-notes/` only. It does not overwrite their `CONTEXT/` or `work-log.md`.
 
-Techs write in **their working repo**. They do not update this GitHub library. Need a skill change? File an issue. Logan edits [`author-notes/`](author-notes/README.md).
+Techs write in **their working repo**. They do not update this GitHub library. Skill problems go to dashboard **Report Feedback** (related feature **Cursor skills**) via the `report-skill-issue` skill.
 
 ## Author notes (Logan)
 
-Edit [`author-notes/`](author-notes/README.md) **in this repo**. Setup copies them to each project as `.cursor/library-notes/` (read-only). Each person also gets their own `CONTEXT/` (including `work-log.md`) and `.env.example` / `.env` with `SGS_EMAIL` + LIMS keys.
+Edit [`author-notes/`](author-notes/README.md) **in this repo**. Setup copies them to each project as `.cursor/library-notes/` (read-only). Each person also gets their own `CONTEXT/` (`work-log.md`, `skill-issues.md`) and `.env.example` / `.env` with `SGS_EMAIL` + LIMS keys.
 
 ## Skills
 
 | Skill | When |
 |---|---|
 | `setup-agent` | "help me get set up", refresh skills, Python / `.env` |
-| `github-collab` | comment on a PR, file a GitHub issue, open a PR |
+| `report-skill-issue` | skill failed; send to engineering via dashboard Feedback |
+| `github-collab` | comment on a PR (not this library) |
 | `extract-seesales` | Accutest SEE SALES → SharePoint |
 | `extract-tat-by-group` | Accutest TAT by service group |
 | `outlook-datadrop-rule` | Outlook → `us.ehs.datadrop@sgs.com` |

@@ -32,6 +32,8 @@ The person in Developer Context is **this machine's user**. Logan Bishop, the da
 
 GitHub comments / issues / PRs: `.cursor/skills/github-collab/SKILL.md` and `.cursor/library-notes/github.md`. You may comment or file a **request** on GitHub. You must **not** change `logan-bishop-sgs/sgs-agent-skills` (no commits, no PRs, no author-note edits) unless you are Logan and he asked. Most NAM EHS **apps** stay on Azure DevOps.
 
+**Skill is wrong:** append `{{CONTEXT_DIR}}/skill-issues.md`, then send it to engineering with `.cursor/skills/report-skill-issue/SKILL.md` (dashboard Report Feedback, related feature **Cursor skills**). That is the engineering inbox. Not a GitHub PR. Vision: `.cursor/library-notes/vision.md`.
+
 Machine / `.env` / Python: `.cursor/library-notes/machine-setup.md`. `.env` holds this user's `SGS_EMAIL` / `SGS_NAME` and LIMS (`ANITA_*`). Microsoft password stays in SSO, not `.env`. Never put secrets in git or chat.
 
 ## Your docs (not the GitHub library)

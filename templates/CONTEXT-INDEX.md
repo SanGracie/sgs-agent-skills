@@ -31,6 +31,7 @@ Companion docs: [`project-overview.md`](project-overview.md) and
 | Anything (orientation) | `project-overview.md`, then `.cursor/library-notes/sgs-and-team.md`, then `conventions.md` |
 | Who Logan / the techs / SGS NAM are | `.cursor/library-notes/sgs-and-team.md` (read-only; Logan updates GitHub) |
 | What we already did in this repo | `work-log.md` + `admin/plans/` |
+| A Cursor skill failed / send to engineering | `skill-issues.md` + `.cursor/skills/report-skill-issue/SKILL.md` (dashboard Feedback, **Cursor skills**) |
 | GitHub comment or **request** | `.cursor/skills/github-collab/SKILL.md` + `.cursor/library-notes/github.md` — do not push to `sgs-agent-skills` |
 | Python, `.env`, installs | `.cursor/library-notes/machine-setup.md` + `.cursor/skills/setup-agent/SKILL.md` |
 {{TASK_ROWS}}
@@ -42,4 +43,5 @@ Companion docs: [`project-overview.md`](project-overview.md) and
 | `project-overview.md` | What this repo is, layout, who owns what | **A** |
 | `conventions.md` | Cross-cutting gotchas agents keep re-learning | **A** |
 | `work-log.md` | What agents/people did in **this** repo | **A** |
+| `skill-issues.md` | Skill problems logged here, then Report Feedback | **A** |
 | `INDEX.md` | This routing map | **A** |

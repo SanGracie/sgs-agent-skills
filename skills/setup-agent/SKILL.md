@@ -89,6 +89,7 @@ Copy from `<library>/skills/` → `<target>/.cursor/skills/<name>/`:
 
 - `setup-agent`
 - `github-collab`
+- `report-skill-issue`
 - `extract-seesales`, `extract-tat-by-group`, `outlook-datadrop-rule`
   (skip LIMS only if they said no)
 
@@ -103,13 +104,14 @@ Copy (overwrite; Logan-owned) from `<library>/author-notes/` →
 - `sgs-and-team.md`
 - `github.md`
 - `machine-setup.md`
+- `vision.md`
 
 Do not copy `author-notes/README.md`. Do **not** put these files in
 `CONTEXT/` — that folder is the user's.
 
 **Their context dir:** `<target>/<app>/CONTEXT/` if there is a primary
 app folder, else `<target>/CONTEXT/`. Create it even if empty of
-library notes. This is where agents keep project docs and `work-log.md`.
+library notes. This is where agents keep project docs, `work-log.md`, and `skill-issues.md`.
 
 ## 3. .gitignore
 
@@ -137,7 +139,8 @@ Contract file is `templates/env.example` (`SGS_EMAIL`, `SGS_NAME`,
 - If the target **has no** `.env.example`, copy the template to
   `<target>/.env.example`.
 - If it **has** one, append any missing keys (`SGS_EMAIL`, `SGS_NAME`,
-  `ANITA_USER`, `ANITA_PASSWORD`, `ANITA_HOST`) with comments. Do not
+  `SGS_EMAIL`, `SGS_NAME`, `ANITA_USER`, `ANITA_PASSWORD`, `ANITA_HOST`,
+  `EHS_DASHBOARD_BASE_URL`) with comments. Do not
   strip dashboard keys.
 - If `<target>/.env` is missing, copy `.env.example` → `.env`.
 - Pre-fill **non-secret** identity from the interview / `git config`:
@@ -158,6 +161,7 @@ is the user_info date (`YYYY-MM-DD`).
 | `CONTEXT-project-overview.md` | `<context-dir>/project-overview.md` |
 | `CONTEXT-conventions.md` | `<context-dir>/conventions.md` |
 | `CONTEXT-work-log.md` | `<context-dir>/work-log.md` (create if missing; **never overwrite** an existing log) |
+| `CONTEXT-skill-issues.md` | `<context-dir>/skill-issues.md` (create if missing; **never overwrite**) |
 | `admin-plans-README.md` | `<target>/admin/plans/README.md` |
 | `admin-CONTEXT-subagents.md` | `<target>/admin/CONTEXT/subagents.md` |
 

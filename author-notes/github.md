@@ -12,8 +12,10 @@ Use `gh`. Skill: `.cursor/skills/github-collab/SKILL.md`.
 library. **Other agents must not change it** — no commits, no pushes, no
 PRs, no edits to `author-notes/`, `skills/`, or `templates/`.
 
-If a skill or note is wrong: file a GitHub **issue** (a request) for
-Logan, and keep working in **this** repo's `CONTEXT/` + `work-log.md`.
+If a skill or note is wrong: log it in **this repo's**
+`CONTEXT/skill-issues.md` and send it with the `report-skill-issue`
+skill (dashboard **Report Feedback**, related feature **Cursor skills**).
+Do not open a PR against the library.
 
 Logan may update the library when he asks an agent to.
 

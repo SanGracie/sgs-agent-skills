@@ -14,8 +14,10 @@ logged in, `gh auth login --web` and wait for the human.
 
 Read `.cursor/library-notes/github.md` for NAM EHS (ADO vs GitHub)
 and the hard rule: **do not change** `logan-bishop-sgs/sgs-agent-skills`.
-Techs keep notes in **their** `CONTEXT/` and `work-log.md`. File an
-**issue** if the library should change.
+Techs keep notes in **their** `CONTEXT/` and `work-log.md`. Skill
+problems: `.cursor/skills/report-skill-issue/SKILL.md` (dashboard
+Feedback). File a GitHub **issue** only for GitHub-hosted app repos,
+never to change this library's skills.
 
 ## Comments
 
