@@ -1,8 +1,8 @@
-﻿# Cursor Skills
+﻿# SGS Agent Skills
 
 Shared [Cursor](https://cursor.com) Agent skills and workspace setup for SGS NAM EHS.
 
-Repo: https://github.com/logan-bishop-sgs/cursor-skills
+Repo: https://github.com/logan-bishop-sgs/sgs-agent-skills
 
 This repository is **public** so any SGS colleague with the link can open it. Do not commit secrets, passwords, tokens, `.trc`, or `anita.wcf`.
 

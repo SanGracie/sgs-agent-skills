@@ -1,7 +1,7 @@
 ---
 name: setup-agent
 description: >-
-  Sets up a Cursor agent workspace from the SGS cursor-skills library:
+  Sets up a Cursor agent workspace from the SGS sgs-agent-skills library:
   copies LIMS skills, writes a personalized .cursor/rules/workspace.mdc,
   and creates CONTEXT/ docs plus admin/plans. Use when the user says
   help me get set up, set up cursor, set up the agent, create cursor
@@ -24,7 +24,7 @@ This library's templates live in `templates/` next to `skills/`.
   file is `.cursor/rules/workspace.mdc`.
 - Put `.cursor/rules/` inside an app package.
 - Commit `.env`, passwords, tokens, `.trc`, or `anita.wcf`.
-- Run this against the `cursor-skills` library itself unless the user
+- Run this against the `sgs-agent-skills` library itself unless the user
   explicitly wants docs in this repo.
 
 ## Resolve paths
@@ -33,10 +33,10 @@ This library's templates live in `templates/` next to `skills/`.
    Walk up from this `SKILL.md` (`skills/setup-agent/`). If this skill
    was copied into a project as `.cursor/skills/setup-agent/` and
    `templates/` is missing, clone
-   `https://github.com/logan-bishop-sgs/cursor-skills` to a temp dir
+   `https://github.com/logan-bishop-sgs/sgs-agent-skills` to a temp dir
    and use that as the library root.
 2. **Target root** — the git repo the user wants set up.
-   - If the current workspace **is** `cursor-skills`, ask for the
+   - If the current workspace **is** `sgs-agent-skills`, ask for the
      working-repo path (their dashboard, V3 clone, etc.).
    - Otherwise the current workspace is the target.
    - Never guess a OneDrive sibling. Confirm the path exists
@@ -156,5 +156,5 @@ Add to the task table:
    - what you created, and that `CONTEXT/` is theirs to grow
 
 Do not commit unless they ask. If they want this library updated,
-commit in `cursor-skills`, not in their app repo, unless they asked
+commit in `sgs-agent-skills`, not in their app repo, unless they asked
 to save the new rules there.
