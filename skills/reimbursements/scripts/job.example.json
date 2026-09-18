@@ -1,0 +1,23 @@
+{
+  "header_memo": "bogota 7/26",
+  "lines": [
+    {
+      "kind": "card",
+      "merchant": "Uber",
+      "date": "2026-09-10",
+      "amount": 24.5,
+      "expense_item": "US_MEALS (SELF, SGS EMP.)TIPS",
+      "memo": "Airport to hotel",
+      "receipt": "receipts/uber-0910.pdf"
+    },
+    {
+      "kind": "oop",
+      "merchant": "Dollarcity",
+      "date": "2026-07-26",
+      "amount": 37.16,
+      "expense_item": "US_MEALS (SELF, SGS EMP.)TIPS",
+      "memo": "Dollarcity Bogota snacks. Ticket 113,000 COP (~$37.16 USD). Entered in USD because reimbursement stayed 0.00 when the line was in COP.",
+      "receipt": "receipts/dollarcity.pdf"
+    }
+  ]
+}
