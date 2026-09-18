@@ -12,11 +12,14 @@ Foreign-currency workaround: short what-it-was, then the ticket in local money, 
 
 Example: `Dollarcity Bogota snacks. Ticket 113,000 COP (~$37.16 USD). Entered in USD because reimbursement stayed 0.00 when the line was in COP.`
 
+Example: `Sheraton Bogota hotel laundry (Lavanderia). Ticket 913,920 COP (~$300.54 USD). Entered in USD because reimbursement stayed 0.00 when the line was in COP.`
+
 ## Expense types that have been used
 
 | When it looks like | Type to pick in Workday |
 |--------------------|-------------------------|
 | Meals / snacks / hotel restaurant | `US_MEALS (SELF, SGS EMP.)TIPS` |
+| Hotel laundry / dry cleaning | `US_LAB CLOTHING - LAUNDRY/DRY CLEANING` |
 
 ## Do not do
 

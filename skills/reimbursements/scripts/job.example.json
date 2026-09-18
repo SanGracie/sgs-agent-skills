@@ -18,6 +18,15 @@
       "expense_item": "US_MEALS (SELF, SGS EMP.)TIPS",
       "memo": "Dollarcity Bogota snacks. Ticket 113,000 COP (~$37.16 USD). Entered in USD because reimbursement stayed 0.00 when the line was in COP.",
       "receipt": "receipts/dollarcity.pdf"
+    },
+    {
+      "kind": "oop",
+      "merchant": "Sheraton Bogota",
+      "date": "2026-08-28",
+      "amount": 300.54,
+      "expense_item": "US_LAB CLOTHING - LAUNDRY/DRY CLEANING",
+      "memo": "Sheraton Bogota hotel laundry (Lavanderia). Ticket 913,920 COP (~$300.54 USD). Entered in USD because reimbursement stayed 0.00 when the line was in COP.",
+      "receipt": "receipts/sheraton-laundry.pdf"
     }
   ]
 }

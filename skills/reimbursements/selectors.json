@@ -123,6 +123,19 @@
     ],
     "text": ["Done"]
   },
+  "save_for_later": {
+    "css": [
+      "[data-automation-id='wd-CommandButton'][title='Save for Later']",
+      "button[data-automation-id='saveForLater']"
+    ],
+    "text": ["Save for Later"]
+  },
+  "edit_expense_report": {
+    "css": [
+      "[data-automation-id='wd-CommandButton'][title='Edit Expense Report']"
+    ],
+    "text": ["Edit Expense Report"]
+  },
   "page_error_close": {
     "css": [
       "[data-automation-id='wd-Popup'] [title='Close']",

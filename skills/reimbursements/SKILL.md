@@ -92,6 +92,21 @@ row by the **exact** `expense_item` string from the job (see
 
 One PDF with several photos → one job line per receipt.
 
+If they say **only file one page** (for example the second invoice in a
+hotel PDF), split that page out and set `receipt` to **that page only**.
+Do not attach the whole PDF. Do not file the skipped invoice, even if
+it is a large hotel stay.
+
+Before `kind: oop`, look at Credit Card Transactions for a matching
+charge. If none, Cancel, then New Expense.
+
+Adding to an **existing draft:** open it → Edit Expense Report → Add.
+That screen may have **Save for Later** and no line Done button. The
+script tries Done first, then Save for Later. Still do **not** Submit.
+
+On a report that already has a converted foreign-currency line, reuse
+that same USD rate for later tickets in the same currency.
+
 ## When the script breaks (self-heal)
 
 Refresh skills **overwrites** `.cursor/skills/reimbursements/`. Heals

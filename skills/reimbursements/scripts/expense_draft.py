@@ -345,6 +345,10 @@ def run_job(page, selectors: dict, job: dict) -> None:
     if ok:
         ok.click()
         time.sleep(0.8)
+    edit = locate(page, selectors.get("edit_expense_report") or {}, timeout_ms=2000)
+    if edit:
+        edit.click()
+        time.sleep(0.8)
 
     for index, line in enumerate(job["lines"]):
         if line["kind"] == "card":
@@ -395,7 +399,11 @@ def run_job(page, selectors: dict, job: dict) -> None:
         if line.get("receipt"):
             attach_receipt(page, selectors, line["receipt"])
         close_page_error(page, selectors)
-        click_named(page, selectors, "line_done", timeout_ms=5000)
+        try:
+            click_named(page, selectors, "line_done", timeout_ms=4000)
+        except LookupError:
+            # Existing-draft edit screen often has Save for Later, not Done.
+            click_named(page, selectors, "save_for_later", timeout_ms=5000)
         time.sleep(0.6)
         print(f"line {index + 1}/{len(job['lines'])} done ({line['kind']})")
 
