@@ -71,17 +71,27 @@ Use this path when they say the spend was personal / out of pocket, or no card c
 
 If one PDF has several photos, make **one line per receipt**, not one line for the whole file.
 
+If they say **only file one page** (for example the second invoice in a hotel PDF), split that page out and attach **only that page**. Do not attach the whole PDF. Do not file the skipped invoice, even if it is a large hotel stay.
+
+Before adding an out-of-pocket line, open **Credit Card Transactions** and look for a matching charge. If none, Cancel, then **New Expense**.
+
 ## Line fields that must be filled
 
-- **Expense item:** search does **not** work. Open the prompt → **By Alphabetical Order** → scroll the list itself (not the page) and click. For meals, jump near scroll position 1980 for `US_MEALS (SELF, SGS EMP.)TIPS`. Click only when that row is in the middle of the screen, not under the header.
+- **Expense item:** search does **not** work. Open the prompt → **By Alphabetical Order** → scroll the list itself (not the page) and click. For meals, jump near scroll position 1980 for `US_MEALS (SELF, SGS EMP.)TIPS`. For hotel laundry / dry cleaning, find `US_LAB CLOTHING - LAUNDRY/DRY CLEANING` (under L, before meals). Click only when that row is in the middle of the screen, not under the header.
 - **Memo:** required. Type it in the Memo box, press Tab, then Done.
 - **Amount:** never invent. Foreign currency: see below.
 
 ## Foreign currency
 
-Do **not** leave the line in local money (for example COP). Workday can convert on screen, but **Reimbursement stays 0.00** until the line is saved in **USD**. Put the USD amount Workday showed; write the local total in the memo.
+Do **not** leave the line in local money (for example COP). Workday can convert on screen, but **Reimbursement stays 0.00** until the line is saved in **USD**. Put the USD amount Workday showed; write the local total in the memo. On a report that already has a converted line, reuse that same rate for later tickets in the same currency.
 
 A leftover “meal over $100” warning can stick even when Submit is still allowed — leave it.
+
+## Adding to an existing draft
+
+Open the draft → **Edit Expense Report** → **Add** → **New Expense** (or Credit Card Transactions if a card charge matches).
+
+That edit screen may have **Save for Later** at the bottom and **no line Done button**. Fill the line, then **Save for Later**. Still do **not** click Submit.
 
 ## Receipts
 
